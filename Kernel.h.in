@@ -1,0 +1,27 @@
+/// \author Johannes de Fine Licht (johannes.definelicht@inf.ethz.ch)
+/// \date October 2016
+#pragma once
+#include "Burst.h"
+
+typedef ${EXAMPLE_DATA_TYPE} Element_t;
+const unsigned kBurstSize = ${EXAMPLE_DATA_WIDTH}; 
+const unsigned kElementsPerBurst = kBurstSize / sizeof(Element_t);
+
+/// Number of elements to read/write from/to the interface
+const unsigned kElements = ${EXAMPLE_ELEMENTS};
+const unsigned kIterations = ${EXAMPLE_ITERATIONS};
+const unsigned kDepth = ${EXAMPLE_COMPUTE_STAGES};
+const unsigned kAddsPerStage = ${EXAMPLE_ADDS_PER_STAGE};
+const unsigned kMultsPerStage = ${EXAMPLE_MULTS_PER_STAGE};
+const char *const kDeviceString = "${EXAMPLE_DSA_STRING}";
+
+// The value that will be filled to the input passed to the kernel function,
+// and that will be output by the kernel function (if executed correctly).
+const Element_t kFillVal = 5;
+
+const unsigned kBursts = kElements / kElementsPerBurst;
+
+typedef hlsutil::Burst<Element_t, kBurstSize> Burst;
+
+void Kernel(Burst const input[kBursts], Burst output[kBursts],
+            unsigned iterations);

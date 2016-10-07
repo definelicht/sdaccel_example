@@ -1,0 +1,8 @@
+open_project SDAccelExample 
+open_solution ${EXAMPLE_PLATFORM_NAME} 
+set_part ${EXAMPLE_PLATFORM_NAME} 
+set_top ${EXAMPLE_ENTRY} 
+add_files ${CMAKE_SOURCE_DIR}/Kernel.cpp -cflags "-I${CMAKE_BINARY_DIR} -I${CMAKE_SOURCE_DIR}/include"
+add_files -tb ${CMAKE_SOURCE_DIR}/Testbench.cpp -cflags "-std=c++0x -I${CMAKE_BINARY_DIR} -I${CMAKE_SOURCE_DIR}/include"
+cosim_design
+quit
