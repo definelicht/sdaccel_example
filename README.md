@@ -12,6 +12,8 @@ To configure in a separate folder called "build":
 * `cd build`
 * `cmake ../`
 
+If Vivado HLS and/or SDAccel are not on the path, they can be specified with the CMake options `VIVADO_HLS_ROOT_DIR` and `SDACCEL_ROOT_DIR`.
+
 Available build targets are:
 * `make csim` - run the program in software using provided testbench to verify semantics.
 * `make cosim` - run hardware simulation using the provided testbench.
