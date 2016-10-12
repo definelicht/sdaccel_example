@@ -1,6 +1,6 @@
 /// \author Johannes de Fine Licht (johannes.definelicht@inf.ethz.ch)
 /// \date October 2016
-#include "Config.h"
+#include "Kernel.h"
 
 void Compute(Burst const *input, Burst *output);
 
